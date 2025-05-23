@@ -6,4 +6,3 @@ coco_subsets/train2017/
 coco_subsets/
 metrics_calculation/precalculated_weights/
 metrics_calculation/rb_swap/.ipynb_checkpoints/
-training/
