@@ -103,7 +103,9 @@ Example output:
 <div align="center">
 <figure>
   <img src="resources/v1_vs_v2.png" width="600">
-  <figcaption>SigLIP vs SigLIP2 Feature Space Comparison</figcaption>
+  <div>
+    <figcaption>SigLIP vs SigLIP2 Feature Space Comparison</figcaption>
+  </div>
 </figure>
 </div>
 
@@ -125,6 +127,8 @@ Example output:
 <div align="center">
 <figure>
   <img src="resources/rb_swap.png" width="600">
-  <figcaption>RGB Channel Swap in Feature Space</figcaption>
+  <div>
+    <figcaption>RGB Channel Swap in Feature Space</figcaption>
+  </div>
 </figure>
 </div>
