@@ -1,0 +1,8 @@
+generated_datasets/
+feature_extractor_weights/
+__pycache__/
+coco_subsets/train2017/
+*.zip
+coco_subsets/
+metrics_calculation/precalculated_weights/
+metrics_calculation/rb_swap/.ipynb_checkpoints/
