@@ -52,21 +52,23 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Image Reconstruction as a Tool for Feature Analysis</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <a href="mailto:allakhverdov@2a2i.org" target="_blank">Eduard Allakhverdov</a>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <a href="mailto:d.tarasov@airi.net" target="_blank">Dmitrii Tarasov</a>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
+                    <a href="mailto:goncharova@airi.net" target="_blank">Elizaveta Goncharova</a>,</span>
+                    <span class="author-block">
+                      <a href="mailto:goncharova@airi.net" target="_blank">Andrey Kuznetsov</a>
+                    </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <span class="author-block">AIRI<br>Moscow, Russia</span>
+                    <span class="author-block">MIPT<br>Dolgoprudny, Russia</span>
                   </div>
 
                   <div class="column has-text-centered">
@@ -148,7 +150,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Vision encoders are increasingly used in modern applications, from vision-only models to multimodal systems such as vision-language models. Despite their remarkable success, it remains unclear how these architectures represent features internally. Here, we propose a novel approach for interpreting vision features via image reconstruction. We compare two related model families, SigLIP and SigLIP2, which differ only in their training objective, and show that encoders pre-trained on image-based tasks retain significantly more image information than those trained on non-image tasks such as contrastive learning. We further apply our method to a range of vision encoders, ranking them by the informativeness of their feature representations. Finally, we demonstrate that manipulating the feature space yields predictable changes in reconstructed images, revealing that orthogonal rotations — rather than spatial transformations — control color encoding. Our approach can be applied to any vision encoder, shedding light on the inner structure of its feature space. We also append the code of our experiments to reproduce them successfully: <a href="https://github.com/FusionBrainLab/feature_analysis">https://github.com/FusionBrainLab/feature_analysis</a>.
           </p>
         </div>
       </div>
@@ -165,34 +167,20 @@
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/v1_vs_v2.png" alt="Comparison of SigLIP and SigLIP2 reconstructions"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          Comparison of image reconstructions from SigLIP and SigLIP2 feature spaces.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/rb_swap.png" alt="Red-Blue channel swap visualization"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          Visualization of feature space manipulation through red-blue channel swap.
         </h2>
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
     </div>
   </div>
-</div>
 </div>
 </section>
 <!-- End image carousel -->
@@ -291,7 +279,7 @@
         <div class="content">
 
           <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
             You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
