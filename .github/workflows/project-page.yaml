@@ -8,7 +8,7 @@ on:
       - project/**
 
 jobs:
-  build-handbook:
+  build-project-page:
     name: 'Project page static files artifact'
     runs-on: ubuntu-latest
 
@@ -18,9 +18,9 @@ jobs:
         with:
           path: ./project
 
-  deploy-handbook:
+  deploy-project-page:
     # Add a dependency to the build job
-    needs: build-handbook
+    needs: build-project-page
 
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
