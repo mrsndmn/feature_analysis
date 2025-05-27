@@ -27,7 +27,7 @@
 
 
   <title>Image Reconstruction as a Tool for Feature Analysis</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -55,34 +55,21 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Image Reconstruction as a Tool for Feature Analysis</h1>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">
-                <a href="mailto:allakhverdov@2a2i.org" target="_blank">Eduard Allakhverdov</a>
+                <strong>Eduard Allakhverdov</strong><sup>§†</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a href="mailto:d.tarasov@airi.net" target="_blank">Dmitrii Tarasov</a>
+                <strong>Dmitrii Tarasov</strong><sup>§</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a href="mailto:goncharova@airi.net" target="_blank">Elizaveta Goncharova</a>
+                <strong>Elizaveta Goncharova</strong><sup>§</sup>,&nbsp;
               </span>
               <span class="author-block">
-                <a href="mailto:kuznetsov@airi.net" target="_blank">Andrey Kuznetsov</a>
+                <strong>Andrey Kuznetsov</strong><sup>§</sup>,&nbsp;
               </span>
-            </div>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                AIRI, Moscow, Russia<br>
-                MIPT, Dolgoprudny, Russia
-              </span>
-              <span class="author-block">
-                AIRI, Moscow, Russia
-              </span>
-              <span class="author-block">
-                AIRI, Moscow, Russia
-              </span>
-              <span class="author-block">
-                AIRI, Moscow, Russia
-              </span>
+              <ul>
+                <sup>§</sup> AIRI, <sup>†</sup> MIPT
+              </ul>
             </div>
 
             <div class="column has-text-centered">
@@ -100,6 +87,7 @@
                 </span>
 
                 <!-- ArXiv abstract Link -->
+                 <!-- TODO: add arXiv link -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
@@ -150,45 +138,60 @@
       <!-- Базовые результаты: siglip vs siglip2 -->
       <!-- Нужно четко подчеркнуть какие различия между модельками -->
       <!-- И как это влияет на реконструкцию -->
-      <!--  -->
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="white-space: nowrap;">Reconstruct images from feature space</h2>
+        <div class="content has-text-justified">
+          <div style="text-align: center;">
+          <img src="./static/images/features_reconstruction.drawio.png" alt="features_reconstruction" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 1. Image reconstructor training.</b> For pretrained model we train a reconstructor model that restores the image from the feature space.
+          </p>
+          <img src="./static/images/reconstruction_metrics.jpg" alt="reconstruction_metrics" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 2. Reconstruction Metrics.</b> We show the results of the reconstruction for SigLip and SigLip2 for different image resultions.
+          </p>
+        </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
 
   <!-- (2) Feature-space transformations -->
       <!-- Текстовое объяснение -->
       <!-- Визуализация фреймворка: обобщил оператор в пр-ве картинок и в пр-ве фичей -->
-      <!-- Сделать видос с визуализацией фреймворка -->
       <!-- Примеры работы с RGB -->
       <!-- Примеры работы с отключением одного канала (ожелтением) -->
+      <!-- Примеры Спектра такой м-цы, показать, что только небольшое кол-во каналов меняется -->
       <!--  -->
 
-
-  <!-- Image carousel -->
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div id="results-carousel" class="carousel results-carousel">
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/v1_vs_v2.png" alt="Comparison of SigLIP and SigLIP2 reconstructions" />
-            <h2 class="subtitle has-text-centered">
-              Comparison of image reconstructions from SigLIP and SigLIP2 feature spaces.
-            </h2>
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations</h2>
+          <div class="content has-text-justified">
+            <div style="text-align: center;">
+            <img src="./static/images/features_reconstruction_manipulation.drawio.png" alt="features_reconstruction_manipulation" width="900">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 3. Feature-space transformations.</b> We then calculate Q matrix for feature-space manupulation.
+            </p>
+            <img src="./static/images/rb_swap.png" alt="rb_swap" width="900">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 4. Red-blue channel swap samples.</b> We then calculate Q matrix for feature-space manupulation.
+            </p>
+            <img src="./static/images/rb_swap_eigenvalues.png" alt="rb_swap_eigenvalues" width="900">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 5. Eigenvalues for red-blue channel swap matrix.</b> Majority of eigenvalues are close to 1, which means that the transformation is close to an identity matrix. While the other cluster of eigenvalues are close to -1, which means that for these channels direction is changed to the opposite.
+            </p>
           </div>
-          <div class="item">
-            <!-- Your image here -->
-            <img src="static/images/rb_swap.png" alt="Red-Blue channel swap visualization" />
-            <h2 class="subtitle has-text-centered">
-              Visualization of feature space manipulation through red-blue channel swap.
-            </h2>
           </div>
+          <br><br>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- End image carousel -->
 
 
 
-
+  <!-- TODO: add citation -->
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
