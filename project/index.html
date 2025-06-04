@@ -332,6 +332,46 @@
 
   <!-- End of Statcounter Code -->
 
+  <!-- Add modal HTML structure -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    // Get the modal
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const closeBtn = document.getElementsByClassName("modal-close")[0];
+
+    // Add click event to all images
+    document.querySelectorAll('.image.is-16by9 img').forEach(img => {
+      img.onclick = function() {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      }
+    });
+
+    // Close modal when clicking the close button
+    closeBtn.onclick = function() {
+      modal.style.display = "none";
+    }
+
+    // Close modal when clicking outside the image
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+
 </body>
 
 </html>
