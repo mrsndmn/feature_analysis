@@ -143,21 +143,17 @@
     <div class="column is-four-fifths">
       <h2 class="title is-3" style="white-space: nowrap;">Reconstruct images from feature space</h2>
       <div class="content has-text-justified">
-        <div class="columns is-centered">
-          <div class="column is-half">
-            <img src="./static/images/features_reconstruction.drawio.png" alt="features_reconstruction" width="100%">
-            <p class="caption" style="width: 100%; text-align: center;">
-              <b>Figure 1. Image reconstructor training.</b> For pretrained model we train a reconstructor model that
-              restores the image from the feature space.
-            </p>
-          </div>
-          <div class="column is-half">
-            <img src="./static/images/reconstruction_metrics.jpg" alt="reconstruction_metrics" width="100%">
-            <p class="caption" style="width: 100%; text-align: center;">
-              <b>Figure 2. Reconstruction Metrics.</b> We show the results of the reconstruction for SigLip and SigLip2
-              for different image resultions.
-            </p>
-          </div>
+        <div style="text-align: center;">
+          <img src="./static/images/features_reconstruction.drawio.png" alt="features_reconstruction" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 1. Image reconstructor training.</b> For pretrained model we train a reconstructor model that
+            restores the image from the feature space.
+          </p>
+          <img src="./static/images/reconstruction_metrics.jpg" alt="reconstruction_metrics" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 2. Reconstruction Metrics.</b> We show the results of the reconstruction for SigLip and SigLip2
+            for different image resultions.
+          </p>
         </div>
       </div>
       <br><br>
@@ -177,21 +173,26 @@
       <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations. Q matrix Calculation and
         Application.</h2>
       <div class="content has-text-justified">
-        <div style="text-align: center;">
-          <img src="./static/images/features_reconstruction_manipulation_train_Q.drawio.png"
-            alt="features_reconstruction_manipulation_train_Q" width="900">
-          <p class="caption" style="width: 100%; text-align: center;">
-            <b>Figure 3. Feature-space transformations. Q matrix Calculation.</b> We then calculate Q matrix for
-            feature-space manupulation.
-          </p>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <img src="./static/images/features_reconstruction_manipulation_train_Q.drawio.png"
+              alt="features_reconstruction_manipulation_train_Q" width="700">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 3. Feature-space transformations. Q matrix Calculation.</b> We then calculate Q matrix for
+              feature-space manupulation.
+            </p>
+          </div>
         </div>
-        <div style="text-align: center;">
-          <img src="./static/images/features_reconstruction_manipulation_eval_Q.drawio.png"
-            alt="features_reconstruction_manipulation_eval_Q" width="900">
-          <p class="caption" style="width: 100%; text-align: center;">
-            <b>Figure 4. Feature-space transformations. Q matrix Application.</b> After Q matrix is calculated, we apply
-            it to the feature space. For each patch embedding.
-          </p>
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <img src="./static/images/features_reconstruction_manipulation_eval_Q.drawio.png"
+              alt="features_reconstruction_manipulation_eval_Q" width="700">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 4. Feature-space transformations. Q matrix Application.</b> After Q matrix is calculated, we
+              apply
+              it to the feature space. For each patch embedding.
+            </p>
+          </div>
         </div>
       </div>
       <br><br>
