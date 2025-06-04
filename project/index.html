@@ -168,26 +168,78 @@
 
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations</h2>
+          <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations. Q matrix Calculation and Application.</h2>
           <div class="content has-text-justified">
-            <div style="text-align: center;">
-            <img src="./static/images/features_reconstruction_manipulation.drawio.png" alt="features_reconstruction_manipulation" width="900">
+            <img src="./static/images/features_reconstruction_manipulation_train_Q.drawio.png" alt="features_reconstruction_manipulation_train_Q" width="900">
             <p class="caption" style="width: 100%; text-align: center;">
-              <b>Figure 3. Feature-space transformations.</b> We then calculate Q matrix for feature-space manupulation.
+              <b>Figure 3. Feature-space transformations. Q matrix Calculation.</b> We then calculate Q matrix for feature-space manupulation.
             </p>
+            <div style="text-align: center;">
+            <img src="./static/images/features_reconstruction_manipulation_eval_Q.drawio.png" alt="features_reconstruction_manipulation_eval_Q" width="900">
+            <p class="caption" style="width: 100%; text-align: center;">
+              <b>Figure 4. Feature-space transformations. Q matrix Application.</b> After Q matrix is calculated, we apply it to the feature space. For each patch embedding.
+            </p>
+          </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
+
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations. Color Swap Examples.</h2>
+            <div class="content has-text-justified">
+
             <img src="./static/images/rb_swap.png" alt="rb_swap" width="900">
             <p class="caption" style="width: 100%; text-align: center;">
-              <b>Figure 4. Red-blue channel swap samples.</b> We then calculate Q matrix for feature-space manupulation.
+              <b>Figure 5. Red-blue channel swap samples.</b>
             </p>
             <img src="./static/images/rb_swap_eigenvalues.png" alt="rb_swap_eigenvalues" width="900">
             <p class="caption" style="width: 100%; text-align: center;">
-              <b>Figure 5. Eigenvalues for red-blue channel swap matrix.</b> Majority of eigenvalues are close to 1, which means that the transformation is close to an identity matrix. While the other cluster of eigenvalues are close to -1, which means that for these channels direction is changed to the opposite.
+              <b>Figure 6. Eigenvalues for red-blue channel swap matrix.</b> Majority of eigenvalues are close to 1, which means that the transformation is close to an identity matrix. While the other cluster of eigenvalues are close to -1, which means that for these channels direction is changed to the opposite.
             </p>
           </div>
           </div>
           <br><br>
         </div>
       </div>
+
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations. Blue Channel Suppression.</h2>
+          <div class="content has-text-justified">
+
+          <img src="./static/images/b_suppression_all_transformations.png" alt="b_suppression_all_transformations" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 7. Blue channel suppression samples.</b>
+          </p>
+          <img src="./static/images/b_suppression_all_eigen_values.png" alt="b_suppression_all_eigen_values" width="900">
+          <p class="caption" style="width: 100%; text-align: center;">
+            <b>Figure 8. Eigenvalues for blue channel suppression matrix.</b>
+          </p>
+        </div>
+        </div>
+        <br><br>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3" style="white-space: nowrap;">Feature-space transformations. Colorization.</h2>
+        <div class="content has-text-justified">
+
+        <img src="./static/images/colorized_examples.png" alt="colorization_all_transformations" width="900">
+        <p class="caption" style="width: 100%; text-align: center;">
+          <b>Figure 9. Colorization samples.</b>
+        </p>
+      </div>
+      </div>
+      <br><br>
+    </div>
+  </div>
 
 
 
