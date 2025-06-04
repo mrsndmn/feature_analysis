@@ -233,22 +233,22 @@ body {
 }
 
 /* Vertical line between figures */
-.column.is-half:first-child {
+.has-vertical-divider .column.is-half:first-child {
   position: relative;
   padding-right: 2rem;
 }
 
-.column.is-half:first-child::after {
+.has-vertical-divider .column.is-half:first-child::after {
   content: '';
   position: absolute;
   right: 0;
-  top: 0;
-  height: 100%;
-  width: 1px;
+  top: 10%;
+  height: 80%;
+  width: 2px;
   background-color: #dbdbdb;
 }
 
-.column.is-half:last-child {
+.has-vertical-divider .column.is-half:last-child {
   padding-left: 2rem;
 }
 
