@@ -132,7 +132,53 @@
   </section>
   <!-- End paper abstract -->
 
-  <!-- Прописать явно контрибушны: -->
+  <!--
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Overview</h2>
+          <div class="content has-text-centered">
+            <img src="./static/images/teaser.png" alt="teaser" class="is-rounded">
+            <p class="caption has-text-centered mb-6">
+              <b>Figure 1. Overview.</b> Our method enables direct interpretation of vision encoder features through image reconstruction, revealing how different architectures internally represent visual information. We demonstrate this by (a) comparing feature informativeness between model families, (b) ranking encoders by their feature representation quality, and (c) showing how controlled feature space manipulations produce predictable image changes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- Key Contributions -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Key Contributions</h2>
+          <div class="content">
+            <div class="box">
+              <div class="content">
+                <h4>🔍 Novel Feature Analysis Method</h4>
+                <p>We introduce a new approach to interpret vision encoder features through direct image reconstruction, providing insights into how these models internally represent visual information.</p>
+              </div>
+            </div>
+            <div class="box">
+              <div class="content">
+                <h4>📊 Model Family Comparison</h4>
+                <p>We reveal that encoders pre-trained on image-based tasks retain significantly more image information compared to those trained on contrastive learning tasks, demonstrated through our SigLIP vs SigLIP2 analysis.</p>
+              </div>
+            </div>
+            <div class="box">
+              <div class="content">
+                <h4>🎨 Feature Space Control</h4>
+                <p>We demonstrate that orthogonal rotations in feature space control color encoding, enabling predictable image manipulations and revealing the structured nature of the feature representations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- (1) interpretability metric -->
   <!-- Текстовое объяснение -->
@@ -144,18 +190,32 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Reconstruct images from feature space</h2>
+          <h2 class="title is-3 has-text-centered">Method</h2>
+          
+          <!-- Method Overview -->
           <div class="content">
+            <h3 class="title is-4">Feature Reconstruction Framework</h3>
+            <p class="has-text-justified">
+              Our method enables direct interpretation of vision encoder features through image reconstruction. We train a decoder network that learns to reconstruct original images from their feature representations, providing a quantitative measure of feature informativeness.
+            </p>
             <div class="has-text-centered">
               <img src="./static/images/features_reconstruction.drawio.png" alt="features_reconstruction" class="is-rounded">
               <p class="caption has-text-centered mb-6">
-                <b>Figure 1. Image reconstructor training.</b> For pretrained model we train a reconstructor model that
-                restores the image from the feature space.
+                <b>Figure 1.</b> Our reconstruction framework trains a decoder to restore images from feature representations, enabling direct assessment of feature informativeness.
               </p>
+            </div>
+          </div>
+
+          <!-- Comparative Analysis -->
+          <div class="content mt-6">
+            <h3 class="title is-4">Comparative Analysis: SigLIP vs SigLIP2</h3>
+            <p class="has-text-justified">
+              We compare two related model families that differ only in their training objective: SigLIP (trained with contrastive learning) and SigLIP2 (trained on image-based tasks). This controlled comparison reveals how training objectives influence feature representations.
+            </p>
+            <div class="has-text-centered">
               <img src="./static/images/reconstruction_metrics.jpg" alt="reconstruction_metrics" class="is-rounded">
               <p class="caption has-text-centered mb-6">
-                <b>Figure 2. Reconstruction Metrics.</b> We show the results of the reconstruction for SigLip and SigLip2
-                for different image resultions.
+                <b>Figure 2.</b> Reconstruction quality comparison between SigLIP and SigLIP2 across different image resolutions demonstrates that image-based training leads to more informative feature representations.
               </p>
             </div>
           </div>
@@ -164,104 +224,83 @@
     </div>
   </section>
 
-
-  <!-- (2) Feature-space transformations -->
-  <!-- Текстовое объяснение -->
-  <!-- Визуализация фреймворка: обобщил оператор в пр-ве картинок и в пр-ве фичей -->
-  <!-- Примеры работы с RGB -->
-  <!-- Примеры работы с отключением одного канала (ожелтением) -->
-  <!-- Примеры Спектра такой м-цы, показать, что только небольшое кол-во каналов меняется -->
-  <!--  -->
-
+  <!-- Feature Space Analysis -->
   <section class="section">
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Feature-space transformations. Q matrix Calculation and Application.</h2>
+          <h2 class="title is-3 has-text-centered">Feature Space Analysis</h2>
+
+          <!-- Q Matrix Framework -->
           <div class="content">
+            <h3 class="title is-4">Q Matrix: A Tool for Feature Manipulation</h3>
+            <p class="has-text-justified">
+              We introduce the Q matrix framework that enables controlled manipulation of feature representations. This orthogonal transformation matrix is learned to perform specific image manipulations, revealing how visual attributes are encoded in the feature space.
+            </p>
             <div class="columns is-centered has-vertical-divider">
               <div class="column is-half">
                 <img src="./static/images/features_reconstruction_manipulation_train_Q.drawio.png" alt="features_reconstruction_manipulation_train_Q" class="is-rounded mb-4">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 3. Feature-space transformations. Q matrix Calculation.</b> We then calculate Q matrix for feature-space manupulation.
+                  <b>Figure 3.</b> Q matrix calculation process learns the transformation needed for specific image manipulations.
                 </p>
               </div>
               <div style="border-left: 4px solid gray;margin: 50px;"></div>
               <div class="column is-half">
                 <img src="./static/images/features_reconstruction_manipulation_eval_Q.drawio.png" alt="features_reconstruction_manipulation_eval_Q" class="is-rounded mb-4">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 4. Feature-space transformations. Q matrix Application.</b> After Q matrix is calculated, we apply it to the feature space. For each patch embedding.
+                  <b>Figure 4.</b> Application of Q matrix to feature embeddings enables controlled image manipulation.
                 </p>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Feature-space transformations. Color Swap Examples.</h2>
-          <div class="content">
+          <!-- Color Manipulation Results -->
+          <div class="content mt-6">
+            <h3 class="title is-4">Color Manipulation Studies</h3>
+            <p class="has-text-justified">
+              Through our Q matrix framework, we demonstrate precise control over color attributes in the feature space. Our experiments reveal that color information is encoded through orthogonal rotations rather than spatial transformations.
+            </p>
+            
+            <!-- Color Swap -->
+            <h4 class="title is-5 mt-4">Red-Blue Channel Swap</h4>
             <div class="columns is-centered">
               <div class="column is-half">
                 <img src="./static/images/rb_swap.png" alt="rb_swap" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 5. Red-blue channel swap samples.</b>
+                  <b>Figure 5.</b> Red-blue channel swap demonstrates precise control over color channels in feature space.
                 </p>
               </div>
               <div class="column is-half">
                 <img src="./static/images/color_swap_all_eigen_values.png" alt="color_swap_all_eigen_values" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 6. Eigenvalues for red-blue channel swap matrix.</b> Majority of eigenvalues are close to 1, which means that the transformation is close to an identity matrix. While the other cluster of eigenvalues are close to -1, which means that for these channels direction is changed to the opposite.
+                  <b>Figure 6.</b> Eigenvalue analysis reveals that color transformations affect only specific feature dimensions while preserving others.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Feature-space transformations. Blue Channel Suppression.</h2>
-          <div class="content">
+            <!-- Blue Suppression -->
+            <h4 class="title is-5 mt-4">Blue Channel Suppression</h4>
             <div class="columns is-centered">
               <div class="column is-half">
                 <img src="./static/images/b_suppression_all_transformations.png" alt="b_suppression_all_transformations" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 7. Blue channel suppression samples.</b>
+                  <b>Figure 7.</b> Selective suppression of the blue channel demonstrates fine-grained control over color attributes.
                 </p>
               </div>
               <div class="column is-half">
                 <img src="./static/images/b_suppression_all_eigen_values.png" alt="b_suppression_all_eigen_values" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 8. Eigenvalues for blue channel suppression matrix.</b>
+                  <b>Figure 8.</b> Eigenvalue distribution for blue suppression shows targeted modification of specific feature dimensions.
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3 has-text-centered">Feature-space transformations. Colorization.</h2>
-          <div class="content">
+            <!-- Colorization -->
+            <h4 class="title is-5 mt-4">Image Colorization</h4>
             <div class="has-text-centered">
               <img src="./static/images/colorized_examples.png" alt="colorization_all_transformations" class="is-rounded">
               <p class="caption has-text-centered mb-6">
-                <b>Figure 9. Colorization samples.</b>
+                <b>Figure 9.</b> Our method enables controlled colorization through feature space manipulation, demonstrating the structured nature of color encoding.
               </p>
             </div>
           </div>
@@ -270,7 +309,30 @@
     </div>
   </section>
 
-
+  <!-- Conclusion -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Conclusion</h2>
+          <div class="content has-text-justified">
+            <p>
+              Our work introduces a novel approach to understanding vision encoder features through image reconstruction. We demonstrate that:
+            </p>
+            <ul>
+              <li>Training objectives significantly impact how models internally represent visual information</li>
+              <li>Image-based pre-training leads to more informative feature representations compared to contrastive learning</li>
+              <li>Color information is encoded through orthogonal rotations in feature space</li>
+              <li>Our method provides a general framework for analyzing any vision encoder's feature representations</li>
+            </ul>
+            <p>
+              These findings have important implications for model design and provide new tools for understanding and controlling vision encoder behavior. Our approach opens new avenues for feature analysis and manipulation in vision models.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- TODO: add citation -->
   <!--BibTex citation -->
