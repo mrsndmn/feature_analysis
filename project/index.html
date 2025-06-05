@@ -171,7 +171,7 @@
             <div class="box">
               <div class="content">
                 <h4>🎨 Feature Space Control</h4>
-                <p>We demonstrate that orthogonal rotations in feature space control color encoding, enabling predictable image manipulations and revealing the structured nature of the feature representations.</p>
+                <p>We demonstrate that linear transformations in feature space control color encoding of reconstructed images on <strong>three different tasks</strong>: colorization, red-blue channel swap, and blue channel suppression.</p>
               </div>
             </div>
           </div>
@@ -258,51 +258,94 @@
           <div class="content mt-6">
             <h3 class="title is-4">Color Manipulation Studies</h3>
             <p class="has-text-justified">
-              Through our Q matrix framework, we demonstrate precise control over color attributes in the feature space. Our experiments reveal that color information is encoded through orthogonal rotations rather than spatial transformations.
+              Using simple linear transformations in feature space, we demonstrate precise control over color attributes of reconstructed image. Our color manipulation studies serve as a validation of the feature interpretation hypothesis, supported by an image reconstruction approach.
             </p>
-            
+
+            <!-- Colorization -->
+            <h4 class="title is-5 mt-4">Image Colorization</h4>
+
+            <p class="has-text-justified">
+              Colorization task - transforming grayscale images to their color counterparts. This problem requires following properties:</p>
+
+              <p>1. <strong>Semantic Requirement</strong>: Successful colorization necessitates that the feature space geometry encodes real-world knowledge about plausible color distributions for objects and scenes.</p>
+
+              <p>2. <strong>Non-algorithmic Nature</strong>: Colorization cannot be achieved through simple pixel-wise transformations but requires understanding of image semantics.
+            </p>
+
+            <div class="has-text-centered">
+              <img src="./static/images/colorized_examples.png" width="80%" alt="colorization_all_transformations" class="is-rounded">
+              <p class="caption has-text-centered mb-6">
+                <b>Figure 5.</b> Our method enables controlled colorization through feature space manipulation, demonstrating the structured nature of color encoding.
+              </p>
+            </div>
+
             <!-- Color Swap -->
             <h4 class="title is-5 mt-4">Red-Blue Channel Swap</h4>
+            <p class="has-text-justified">
+
+              <p>Properties we would expect from Red-Blue Channel Swap operator:</p>
+              <ul>
+                <li><strong>Orthogonal</strong> — the operator should be orthogonal, meaning it should preserve the norm of the vector.</li>
+                <li><strong>Self-inverse</strong> — double application of Red Blue color swapping is Identity transformation in image space.</li>
+              </ul>
+              <p><strong>Eigenvalues of the operator</strong> will be close to +1 and -1.</p>
+              <p>As we will see further all this properties are somehow preserved even for Linear operator with no strict constraints on this properties.</p>
+              <p></p>
+
+              <p>We trained three different operators:</p>
+              <ol>
+                  <li><strong>Orthogonal self-conjugated</strong> — as a Procrustes solution with a long-range projection of the operator onto the space of self-conjugated operators.</li>
+                  <li><strong>Orthogonal</strong> — as a Procrustes solution.</li>
+                  <li><strong>Linear</strong> — as a regression problem. <em>(Note that this solution cannot be directly used with the reconstructor, as it fails to preserve vector norms. Since the reconstructor was trained exclusively on normalized vectors, we first normalize the resulting outputs before feeding them to the reconstructor.)</em></li>
+              </ol>
+
+              <p>As shown in <strong>Figure 7</strong>, the eigenvalues of all operators cluster along the real axis, indicating they primarily represent either eigenvector preservation (near +1) or inversion (near -1). While small deviations from these ideal values exist — revealing noise in the feature space — these perturbations remain relatively weak. Consequently, the feature space geometry largely preserves the properties expected from the pixel-space channel permutation operator.</p>
+
+            </p>
             <div class="columns is-centered">
               <div class="column is-half">
-                <img src="./static/images/rb_swap.png" alt="rb_swap" class="is-rounded">
+                <img src="./static/images/color_swap_all_transformations.png" alt="rb_swap" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 5.</b> Red-blue channel swap demonstrates precise control over color channels in feature space.
+                  <b>Figure 6.</b> Red-blue channel swap demonstrates precise control over color channels in feature space.
                 </p>
               </div>
               <div class="column is-half">
                 <img src="./static/images/color_swap_all_eigen_values.png" alt="color_swap_all_eigen_values" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 6.</b> Eigenvalue analysis reveals that color transformations affect only specific feature dimensions while preserving others.
+                  <b>Figure 7.</b> Eigenvalue analysis reveals that color transformations affect only specific feature dimensions while preserving others.
                 </p>
               </div>
             </div>
 
             <!-- Blue Suppression -->
             <h4 class="title is-5 mt-4">Blue Channel Suppression</h4>
+            <p class="has-text-justified">
+
+              <p><strong>Blue Channel Suppression operator</strong> will gradually suppress the blue channel of the image multiplying blue channel by some factor less than 1.</p>
+
+              <p>Properties we would expect from <strong>Blue Channel Suppression operator</strong>:</p>
+              <ul>
+                <li>Asymptotically this operator approaches a projection operator</li>
+              </ul>
+            </p>
+            <p><strong>Eigenvalues of the operator</strong> are either 1 or complex values with magnitude strictly less than 1.</p>
+            <p>We emperically observe this properties.</p>
+
             <div class="columns is-centered">
               <div class="column is-half">
                 <img src="./static/images/b_suppression_all_transformations.png" alt="b_suppression_all_transformations" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 7.</b> Selective suppression of the blue channel demonstrates fine-grained control over color attributes.
+                  <b>Figure 8.</b> Selective suppression of the blue channel demonstrates fine-grained control over color attributes.
                 </p>
               </div>
               <div class="column is-half">
                 <img src="./static/images/b_suppression_all_eigen_values.png" alt="b_suppression_all_eigen_values" class="is-rounded">
                 <p class="caption has-text-centered mb-6">
-                  <b>Figure 8.</b> Eigenvalue distribution for blue suppression shows targeted modification of specific feature dimensions.
+                  <b>Figure 9.</b> Eigenvalue distribution for blue suppression shows targeted modification of specific feature dimensions.
                 </p>
               </div>
             </div>
 
-            <!-- Colorization -->
-            <h4 class="title is-5 mt-4">Image Colorization</h4>
-            <div class="has-text-centered">
-              <img src="./static/images/colorized_examples.png" alt="colorization_all_transformations" class="is-rounded">
-              <p class="caption has-text-centered mb-6">
-                <b>Figure 9.</b> Our method enables controlled colorization through feature space manipulation, demonstrating the structured nature of color encoding.
-              </p>
-            </div>
           </div>
         </div>
       </div>

@@ -232,25 +232,3 @@ body {
   cursor: pointer;
 }
 
-/* Vertical line between figures */
-.has-vertical-divider .column.is-half:first-child {
-  position: relative;
-  padding-right: 2rem;
-}
-
-.has-vertical-divider .column.is-half:first-child::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 10%;
-  height: 80%;
-  width: 2px;
-  background-color: #dbdbdb;
-}
-
-.has-vertical-divider .column.is-half:last-child {
-  padding-left: 2rem;
-}
-
-
-
