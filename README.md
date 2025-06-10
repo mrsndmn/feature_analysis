@@ -113,11 +113,13 @@ Example output:
 <div align="center">
 <figure>
   <img src="resources/v1_vs_v2.png" width="600">
-  <figcaption>SigLIP vs SigLIP2 Feature Space Comparison</figcaption>
+  <div>
+    <figcaption>SigLIP vs SigLIP2 Feature Space Comparison</figcaption>
+  </div>
 </figure>
 </div>
 
-## Orthogonal Transformation Learning
+## Orthogonal Transformation Learning For R and B channels Swap
 To study orthogonal transformations in feature space:
 
 1. Generate dataset for `google/siglip2-base-patch16-512`
@@ -135,7 +137,57 @@ Example output:
 <div align="center">
 <figure>
   <img src="resources/rb_swap.png" width="600">
-  <figcaption>RGB Channel Swap in Feature Space</figcaption>
+  <div>
+    <figcaption>RGB Channel Swap in Feature Space</figcaption>
+  </div>
+</figure>
+</div>
+
+## Linear Transformation Learning For B Channel Suppression
+To study linear transformations in feature space:
+
+1. Generate dataset for `google/siglip2-base-patch16-512`
+2. Train reconstructor or use precomputed [weights](https://drive.google.com/file/d/1i-B-5yBpSwcZL3_Z2Dz53jfxiY9T-fkb/view?usp=drive_link)
+3. Place weights at:
+   ```bash
+   metrics_calculation/precalculated_weights/models--google--siglip2-base-patch16-512.pt
+   ```
+4. Run the analysis notebook:
+   ```
+   metrics_calculation/b_channel_suppression/understanding_b_suppression.ipynb
+   ```
+
+Example output:
+<div align="center">
+<figure>
+  <img src="resources/b_suppression_all_transformations.png" width="600">
+  <div>
+    <figcaption>B Channel Suppression in Feature Space</figcaption>
+  </div>
+</figure>
+</div>
+
+## Linear Transformation Learning For Colorization
+To study linear transformations in feature space:
+
+1. Generate dataset for `google/siglip2-base-patch16-512`
+2. Train reconstructor or use precomputed [weights](https://drive.google.com/file/d/1i-B-5yBpSwcZL3_Z2Dz53jfxiY9T-fkb/view?usp=drive_link)
+3. Place weights at:
+   ```bash
+   metrics_calculation/precalculated_weights/models--google--siglip2-base-patch16-512.pt
+   ```
+4. Run the analysis notebook:
+   ```
+   metrics_calculation/colorization/understanding_colorization.ipynb
+   ```
+
+Example output:
+<div align="center">
+<figure>
+  <img src="resources/colorized_all_examples.png" width="600">
+  <div>
+    <figcaption>Colorization in Feature Space</figcaption>
+  </div>
 </figure>
 </div>
 
