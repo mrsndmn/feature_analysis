@@ -1,3 +1,13 @@
+
+[![](https://img.shields.io/badge/Project_page-blue)](https://fusionbrainlab.github.io/feature_analysis/) [![arXiv](https://img.shields.io/badge/arXiv-2506.07803-b31b1b.svg)](https://arxiv.org/abs/2506.07803) ![GitHub License](https://img.shields.io/github/license/FusionBrainLab/feature_analysis)
+
+# Quick Start
+
+
+A quick start guide and additional materials are available on our [**project page**](https://fusionbrainlab.github.io/feature_analysis/). To learn more, refer to our [**arXiv preprint**](https://arxiv.org/abs/2506.07803).
+
+---
+
 ## Installation
 To set up the environment, navigate to the root directory containing `environment.yml` and run:
 
@@ -128,3 +138,19 @@ Example output:
   <figcaption>RGB Channel Swap in Feature Space</figcaption>
 </figure>
 </div>
+
+
+## Citation
+If you find this work useful, please cite it as follows:
+
+```bibtex
+@misc{allakhverdov2025imagereconstructiontoolfeature,
+      title={Image Reconstruction as a Tool for Feature Analysis},
+      author={Eduard Allakhverdov and Dmitrii Tarasov and Elizaveta Goncharova and Andrey Kuznetsov},
+      year={2025},
+      eprint={2506.07803},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2506.07803},
+}
+```
